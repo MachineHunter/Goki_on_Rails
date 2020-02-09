@@ -1,0 +1,15 @@
+REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
+miniblog_web                   latest              2b8b1c57feb5        5 weeks ago         1.04GB
+<none>                         <none>              1197351d94c2        5 weeks ago         996MB
+rails_custom                   latest              a4300dc1f7e5        5 weeks ago         1.07GB
+railscontainer_web             latest              87eb7157196f        3 months ago        1.04GB
+metalkazudock9981/firstrails   latest              87eb7157196f        3 months ago        1.04GB
+mysql                          5.7                 cd3ed0dfff7e        3 months ago        437MB
+metalkazudock9981/firstmysql   latest              cd3ed0dfff7e        3 months ago        437MB
+ruby                           2.5.3               72aaaee1eea4        11 months ago       873MB
+
+CONTAINER ID        IMAGE                 COMMAND                  CREATED             STATUS                    PORTS               NAMES
+80aac1cb799e        miniblog_web:latest   "rails s -p 3000 -b …"   5 weeks ago         Exited (1) 5 weeks ago                        project1_web_1
+13f909f60abf        mysql:5.7             "docker-entrypoint.s…"   5 weeks ago         Exited (0) 5 weeks ago                        project1_db_1
+7015d9b71134        miniblog_web          "rails s -p 3000 -b …"   5 weeks ago         Exited (1) 17 hours ago                       miniblog_web_1
+2988824d743b        mysql:5.7             "docker-entrypoint.s…"   5 weeks ago         Exited (0) 17 hours ago                       miniblog_db_1

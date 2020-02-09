@@ -1,0 +1,55 @@
+<% if @goki.errors.any? %>
+<ul>
+	<% @goki.errors.full_messages.each do |err| %>
+		<li><%= err %></li>
+	<% end %>
+</ul>
+<% end %>
+
+
+
+
+<header>
+	<h1>Edit Goki</h1>
+</header>
+
+
+
+<main>
+	<p>image: bossgoki facegoki goki mildgoki turkishgoki coolgoki germangoki greengoki minigoki stripegoki whitegoki</p>
+	<div class="editgoki_form">
+		<%= form_for(@goki, url:{controller:'gokicollections', action:'update'}) do |form| %>
+		<table>
+			<tr>
+				<th>name</th>
+				<td><%= form.text_field :name %></td>
+			</tr>
+
+			<tr>
+				<th>image</th>
+				<td><%= form.text_field :img %></td>
+			</tr>
+
+			<tr>
+				<th>description</th>
+				<td><%= form.text_area :description %></td>
+			</tr>
+
+			<tr>
+				<th>genre id</th>
+				<td><%= form.text_field :genre_id %></td>
+			</tr>
+
+			<tr>
+				<th></th>
+				<td><%= form.submit "edit goki" %></td>
+			</tr>
+		</table>
+		<% end %>
+	</div>
+</main>
+
+
+
+<footer>
+</footer>

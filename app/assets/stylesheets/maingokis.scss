@@ -1,0 +1,52 @@
+// Place all the styles related to the maingokis controller mwinhere.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+	height: 100%;
+}
+
+
+body {
+	height: 100%;
+	margin: 0;
+	width: 100%;
+
+	header {
+		height: 15%;
+		width: 100%;
+		background: image_url("maingokis/index/header/headerimg.png") repeat center center / 200px 200px;
+
+		h1 {
+			color: black;
+			text-shadow: 10px 20px 30px purple;
+			font-size: 80px;
+			text-align: center;
+			margin: 0 auto;
+			padding-Top: 20px;
+			font-family: "arial black";
+		}
+	}
+
+	main {
+		height: 73%;
+		width: 100%;
+		background-image: image_url("maingokis/index/mainbg/grass.png");
+		background-size: 1500px 700px;
+		border-top: solid 5px black;
+		border-bottom: solid 5px black;
+	}
+
+	footer {
+		height: 12%;
+		width: 100%;
+		background: image_url("maingokis/index/footer/footerimg.png") repeat center center / 200px 200px;
+		margin: 0;
+		text-align: center;
+
+		.controller {
+			display: inline-block;
+			text-align: center;
+		}
+	}
+}

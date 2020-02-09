@@ -1,0 +1,124 @@
+// Place all the styles related to the gokicollections controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	width: 100%;
+	
+	header {
+		height: 15%;
+		width: 100%;
+		background: image_url("maingokis/index/header/headerimg.png") repeat center center / 200px 200px;
+
+		h1 {
+			color: black;
+			text-shadow: 10px 20px 30px purple;
+			font-size: 80px;
+			text-align: center;
+			margin: 0 auto;
+			font-family: "arial black";
+			padding-Top: 20px;
+		}
+	}
+
+
+	
+	main {
+		height: 73%;
+		width: 100%;
+		border-top: solid 5px black;
+		border-bottom: solid 5px black;
+
+		.collection {
+			display: -webkit-flex;
+			display: flex;
+			flex-wrap: wrap;
+			-webkit-justify-content: space-around;
+			justify-content: space-around;
+			background-color: black;
+			height: 100%;
+			width: 100%;
+
+			.cell {
+				width: 33%;
+				height: 33%;
+				border-bottom: solid 6px black;
+
+				.cell_top {
+					width: 100%;
+					height: 63%;
+					border: solid 1px black;
+					background: image_url("maingokis/index/mainbg/grass.png") repeat center center / 500px 320px;
+					display:  flex;
+					justify-content: space-around;
+				}
+				.cell_buttom {
+					width: 100%;
+					height: 37%;
+					border: solid 1px black;
+					background: image_url("gokicollections/index/gold.png") repeat center center / 500px 300px;
+
+					.gokiname {
+						margin: 0;
+						text-align: center;
+						font-size: 21px;
+						font-familiy: "Homemade Apple", cursive;
+						background-color: brown;
+					}
+
+					.gokidesc {
+						text-align: center;
+						padding: 10px;
+						font-familiy: "Homemade Apple", cursive;
+						font-size: 15px;
+						margin: 0;
+					}
+				}
+			}
+		}
+
+
+		.newgoki_form {
+			height: 100%;
+			width: 100%;
+			background: image_url("gokicollections/new/maintex.png") repeat center center / 300px 200px;
+
+			table {
+				background-color: gray;
+				th {
+					color: white;
+					background-color: black;
+				}
+				td {
+					color: white;
+					background-color: black;
+				}
+			}
+		}
+
+	}
+
+
+
+	footer {
+		height: 12%;
+		width: 100%;
+		background: image_url("maingokis/index/footer/footerimg.png") repeat center center / 200px 200px;
+
+		.editbar {
+			display: flex;
+			flex-wrap: wrap;
+
+			#battlebutton {
+				margin-left: auto;
+				margin-right: 10px;
+			}
+		}
+	}
+}

@@ -1,0 +1,116 @@
+window.onload = function() {
+	var space   = document.getElementById("spacebar");
+	var environ = document.getElementById("environ");
+	var goki = document.getElementById("goki");
+	var x=0;
+	var y=0;
+	var dist=20;
+
+
+
+
+
+	//movement
+	window.addEventListener("keydown", handleKeydown);
+	var uparrow    = 38;
+	var downarrow  = 40;
+	var leftarrow  = 37;
+	var rightarrow = 39;
+	var spacekey   = 32;
+
+	//idle
+	anime({
+		targets: goki,
+		rotate: 3,
+		direction: "alternate",
+		loop: true
+	});
+
+
+	//key movement
+	function handleKeydown(event) {
+		var key=event.keyCode;
+
+		if(key==uparrow){
+			y-=dist;
+			$("#goki").css("marginTop", y+"px");
+		}
+		if(key==downarrow){
+			y+=dist;
+			$("#goki").css("marginTop", y+"px");
+		}
+		if(key==leftarrow){
+			x-=dist;
+			$("#goki").css("marginLeft", x+"px");
+		}
+		if(key==rightarrow){
+			x+=dist;
+			$("#goki").css("marginLeft", x+"px");
+		}
+
+
+		//attack
+		if(key==spacekey) {
+			anime({
+				targets: goki,
+				translateX: 200,
+				duration: 50,
+				direction: "alternate"
+			});
+		}
+	}
+	
+
+
+	//environment
+	var grass = "grass";
+	var sand = "sand";
+	var crack = "crack";
+
+	$("#environ").click(
+		function() {
+			var current = $(".main").css("background-image").toString();
+			if(current.includes(grass)==true){
+				$(".main").css("background-image", "url(<%= asset_path "maingokis/index/mainbg/sand.png" %>)");
+			}
+			else if(current.includes(sand)==true){
+				$(".main").css("background-image", "url(<%= asset_path "maingokis/index/mainbg/crack.png" %>)");
+			}
+			else if(current.includes(crack)==true){
+				$(".main").css("background-image", "url(<%= asset_path "maingokis/index/mainbg/grass.png" %>)");
+			}
+		}
+	)
+
+
+
+
+	//dokuro
+	$("#spacebar").click(
+		function(){
+			anime({
+				targets: goki,
+				rotate: 360,
+				translateX: 20,
+				duration: 2000
+			});
+		}
+	)
+
+	
+
+
+
+	//hover
+	$(".footbutton").hover(
+		function(){
+			anime({
+				targets: this,
+				rotate: 3,
+				direction: "alternate",
+				duration: 45
+			});
+		}
+	)
+}
+

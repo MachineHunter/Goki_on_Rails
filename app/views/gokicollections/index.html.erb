@@ -1,0 +1,46 @@
+<header>
+	<h1>Goki Collection</h1>
+</header>
+
+
+
+<main>
+	<div class="collection">
+		<% (1..9).each do |i| %>
+			<% if @gokis[i-1].present? %>
+				<div class="cell" id="cell"+<%= i.to_s %>>
+					<div class="cell_top" id="cell_top"+<%= i.to_s %>>
+						<%= image_tag "maingokis/index/heroes/"+@gokis[i-1].img+".png", :size=>"230x130", :class=>"gokis"%>
+					</div>
+					<div class="cell_buttom" id="cell_buttom"+<%= i.to_s %>>
+						<p class="gokiname"><%= @gokis[i-1].name %></p>
+						<p class="gokidesc"><%= @gokis[i-1].description %></p>
+					</div>
+				</div>
+			<% else %>
+				<div class="cell" id="cell"+<%= i.to_s %>>
+					<div class="cell_top" id="cell_top"+<%= i.to_s %>></div>
+					<div class="cell_buttom" id="cell_buttom"+<%= i.to_s %>></div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</main>
+
+
+
+<footer>
+	<div class="editbar">
+			<%= image_tag "gokicollections/index/editbutton.png", :size=>"100x100", :class=>"footbutton" %>
+		
+		<%= link_to new_gokicollection_path do %>
+			<%= image_tag "gokicollections/index/newbutton.png", :size=>"100x100", :class=>"footbutton" %>
+		<% end %>
+		
+		<%= image_tag "gokicollections/index/deletebutton.png", :size=>"100x100", :class=>"footbutton" %>
+		
+		<%= link_to maingokis_path, :id=>"battlebutton" do %>
+			<%= image_tag "gokicollections/index/battlebutton.png", :size=>"100x100", :class=>"footbutton" %>
+		<% end %>
+	</div>
+</foot>

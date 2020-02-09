@@ -1,0 +1,64 @@
+<% if @goki.errors.any? %>
+<ul>
+	<% @goki.errors.full_messages.each do |err| %>
+		<li><%= err %></li>
+	<% end %>
+</ul>
+<% end %>
+
+
+<header>
+	<h1>Create Goki</h1>
+</header>
+
+
+
+<main>
+	<div class="newgoki_form">
+		<%= form_for(@goki, url:{controller:'gokicollections', action:'create'}) do |form| %>
+		<table>
+			<tr>
+				<th>name</th>
+				<td><%= form.text_field :name %></td>
+			</tr>
+
+			<tr>
+				<th>image</th>
+				<td><%= form.select :img, options_for_select(@gokiselection) %></td>
+			</tr>
+
+			<tr>
+				<th>description</th>
+				<td><%= form.text_area :description %></td>
+			</tr>
+
+			<tr>
+				<th>genre id</th>
+				<td><%= form.text_field :genre_id %></td>
+			</tr>
+
+			<tr>
+				<th></th>
+				<td><%= form.submit "add goki" %></td>
+			</tr>
+		</table>
+		<% end %>
+
+		<br>
+
+		<table>
+		<% @genres.each do |genre| %>
+			<tr>
+				<th><%= genre.id %></th>
+				<td><%= genre.name %></td>
+				<td><%= genre.description %></td>
+			</tr>
+		<% end %>
+		</table>
+	</div>
+</main>
+
+
+
+<footer>
+</footer>

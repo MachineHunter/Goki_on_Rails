@@ -1,0 +1,2 @@
+module MaingokisHelper
+end

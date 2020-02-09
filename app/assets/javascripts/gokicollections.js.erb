@@ -1,0 +1,21 @@
+window.onload = function() {
+	var cells = document.getElementsByClassName("cell");
+	var gokis = document.getElementsByClassName("gokis");
+	
+	
+	//idle
+	gokis.forEach(
+		function(goki) {
+			console.log(goki);
+			anime({
+				targets: goki,
+				rotate: 3,
+				direction: "alternate",
+				loop: true
+			});
+		}
+	);
+
+
+}
+
