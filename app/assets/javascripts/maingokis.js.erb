@@ -1,12 +1,10 @@
-window.onload = function() {
+$(document).on("turbolinks:load", function() {
 	var space   = document.getElementById("spacebar");
 	var environ = document.getElementById("environ");
 	var goki = document.getElementById("goki");
 	var x=0;
 	var y=0;
 	var dist=20;
-
-
 
 
 
@@ -92,7 +90,7 @@ window.onload = function() {
 				targets: goki,
 				rotate: 360,
 				translateX: 20,
-				duration: 2000
+				duration: 1500
 			});
 		}
 	)
@@ -108,9 +106,9 @@ window.onload = function() {
 				targets: this,
 				rotate: 3,
 				direction: "alternate",
-				duration: 45
+				duration: 20
 			});
 		}
 	)
-}
+});
 

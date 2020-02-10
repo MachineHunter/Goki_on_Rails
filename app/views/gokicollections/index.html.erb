@@ -10,10 +10,10 @@
 			<% if @gokis[i-1].present? %>
 				<div class="cell" id="cell"+<%= i.to_s %>>
 					<div class="cell_top" id="cell_top"+<%= i.to_s %>>
-						<%= image_tag "maingokis/index/heroes/"+@gokis[i-1].img+".png", :size=>"230x130", :class=>"gokis"%>
+						<%= image_tag "maingokis/index/heroes/"+@gokis[i-1].img+".png", :size=>"230x130", :class=>"gokis", :id=>"goki"+i.to_s %>
 					</div>
 					<div class="cell_buttom" id="cell_buttom"+<%= i.to_s %>>
-						<p class="gokiname"><%= @gokis[i-1].name %></p>
+						<p class="gokiname"><%= @gokis[i-1].name %> (<%= @gokis[i-1].genre.name %>)</p>
 						<p class="gokidesc"><%= @gokis[i-1].description %></p>
 					</div>
 				</div>
