@@ -4,18 +4,26 @@ window.onload = function() {
 	
 	
 	//idle
-	gokis.forEach(
-		function(goki) {
-			console.log(goki);
+	for(var i=0; i<gokis.length; i++) {
+		anime({
+			targets: gokis[i],
+			rotate: 3,
+			direction: "alternate",
+			loop: true
+		});
+	}
+
+
+	//hover
+	$(".footbutton").hover(
+		function(){
 			anime({
-				targets: goki,
+				targets: this,
 				rotate: 3,
 				direction: "alternate",
-				loop: true
+				duration: 45
 			});
 		}
-	);
-
-
+	)
 }
 
