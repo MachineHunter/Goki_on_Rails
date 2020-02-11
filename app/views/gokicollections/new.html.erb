@@ -16,7 +16,7 @@
 <main>
 	<div class="newgoki_form">
 		<%= form_for(@goki, url:{controller:'gokicollections', action:'create'}) do |form| %>
-		<table>
+		<table class="formtable">
 			<tr>
 				<th>name</th>
 				<td><%= form.text_field :name %></td>
@@ -38,15 +38,13 @@
 			</tr>
 
 			<tr>
-				<th></th>
+				<th>submit</th>
 				<td><%= form.submit "add goki" %></td>
 			</tr>
 		</table>
 		<% end %>
 
-		<br>
-
-		<table>
+		<table class="genretable">
 		<% @genres.each do |genre| %>
 			<tr>
 				<th><%= genre.id %></th>

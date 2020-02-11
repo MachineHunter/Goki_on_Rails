@@ -89,15 +89,55 @@ body {
 			width: 100%;
 			background: image_url("gokicollections/new/maintex.png") repeat center center / 300px 200px;
 
-			table {
-				background-color: gray;
+			//form tag's class is automatically setted as this
+			.new_goki {
+				height: 60%;
+			}
+			.formtable {
+				width: 100%;
+				height: 100%;
+
+				input,textarea {
+					width: 85%;
+					height: 70%;
+				}
+
+				select {
+					font-size: 30px;
+					width: 85%;
+					height: 70%;
+				}
+
+				input {
+					font-size: 30px;
+				}
+
 				th {
-					color: white;
-					background-color: black;
+					width: 20.4%;
+				}
+			}
+
+			.genretable {
+				width: 100%;
+				height: 40%;
+			}
+
+			table {
+				font-size: 40px;
+				color: black;
+				-webkit-text-stroke-width: 1px;
+				-webkit-text-stroke-color: purple;
+				font-family: "Homemade Apple", cursive;
+				text-shadow: 10px 20px 30px purple;
+
+				th {
+					background: image_url("gokicollections/new/wood.png") repeat center center / 300px 200px;
+					border: solid 1px black;
 				}
 				td {
-					color: white;
-					background-color: black;
+					background: image_url("gokicollections/new/wood.png") repeat center center / 300px 200px;
+					font-weight: bolder;
+					border: solid 1px black;
 				}
 			}
 		}
