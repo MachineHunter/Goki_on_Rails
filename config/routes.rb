@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "maingokis#index"
+  devise_for :users
   get 'maingokis/index'
   get "maingokis", to: "maingokis#index"
   get "maingokis/gindex/:id", to: "maingokis#gindex"

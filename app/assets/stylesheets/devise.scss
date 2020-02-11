@@ -1,0 +1,51 @@
+html {
+	height: 100%;
+}
+
+
+body {
+	height: 15%;
+	width: 100%;
+	margin: 0;
+	
+	header {
+		height: 15%;
+		width: 100%;
+		margin: 0;
+		background: image_url("maingokis/index/header/headerimg.png") repeat center center / 200px 200px;
+		display: flex;
+		flex-wrap: wrap;
+
+		h2 {
+			text-align: center;
+			text-shadow: 10px 20px 30px purple;
+			margin: 0 auto;
+			font-size: 80px;
+			font-familiy: "Homemade Apple", cursive;
+			padding-Top: 20px;
+		}
+	}
+
+
+
+	main {
+		height: 73%;
+		background-image: image_url("maingokis/index/mainbg/grass.png");
+		font-size: 30px;
+		border-width: 0px;
+	}
+
+
+
+	footer {
+		height: 12%;
+		background: image_url("maingokis/index/footer/footerimg.png") repeat center center / 200px 200px;
+
+		a {
+			font-size: 30px;
+			border: solid 1px purple;
+			background-color: black;
+			color: purple;
+		}
+	}
+}

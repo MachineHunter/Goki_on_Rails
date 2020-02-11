@@ -1,0 +1,9 @@
+== 20200211055831 DeviseCreateUsers: migrating ================================
+-- create_table(:users)
+   -> 0.0522s
+-- add_index(:users, :email, {:unique=>true})
+   -> 0.0359s
+-- add_index(:users, :reset_password_token, {:unique=>true})
+   -> 0.0136s
+== 20200211055831 DeviseCreateUsers: migrated (0.1019s) =======================
+

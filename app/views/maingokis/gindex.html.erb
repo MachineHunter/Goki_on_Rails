@@ -1,5 +1,10 @@
 <header>
 	<h1>Gokiburi Is Your Friend</h1>
+	<% if user_signed_in? %>
+		<%= link_to destroy_user_session_path, method: :delete do %>
+			<%= image_tag "maingokis/share/logout.png", :size=>"120x60", :id=>"logoutbutton" %>
+		<% end %>
+	<% end %>
 </header>
 
 

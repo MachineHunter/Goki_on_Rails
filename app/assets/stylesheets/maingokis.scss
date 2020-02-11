@@ -16,6 +16,8 @@ body {
 		height: 15%;
 		width: 100%;
 		background: image_url("maingokis/index/header/headerimg.png") repeat center center / 200px 200px;
+		display: flex;
+		flex-wrap: wrap;
 
 		h1 {
 			color: black;
@@ -24,8 +26,13 @@ body {
 			text-align: center;
 			margin: 0 auto;
 			padding-Top: 20px;
-			font-family: "arial black";
+			font-familiy: "Homemade Apple", cursive;
 		}
+
+		#logoutbutton {
+			padding: 10px;
+		}
+
 	}
 
 	main {
