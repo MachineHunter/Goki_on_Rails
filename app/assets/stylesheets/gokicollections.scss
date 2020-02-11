@@ -28,9 +28,15 @@ body {
 	}
 
 
+	.indexform{
+		margin: 0 auto;
+		width: 100%;
+		height: 85%;
+	}
+
 	
 	main {
-		height: 73%;
+		height: 85%;
 		width: 100%;
 		border-top: solid 5px black;
 		border-bottom: solid 5px black;
@@ -90,7 +96,7 @@ body {
 			background: image_url("gokicollections/new/maintex.png") repeat center center / 300px 200px;
 
 			//form tag's class is automatically setted as this
-			.new_goki {
+			.ftableform {
 				height: 60%;
 			}
 			.formtable {
@@ -147,13 +153,18 @@ body {
 
 
 	footer {
-		height: 12%;
+		height: 15%;
 		width: 100%;
 		background: image_url("maingokis/index/footer/footerimg.png") repeat center center / 200px 200px;
 
 		.editbar {
 			display: flex;
 			flex-wrap: wrap;
+
+			#deletebutton {
+				width: 107px;
+				height: 107px;
+			}
 
 			#battlebutton {
 				margin-left: auto;

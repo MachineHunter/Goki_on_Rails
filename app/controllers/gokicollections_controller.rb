@@ -25,6 +25,7 @@ class GokicollectionsController < ApplicationController
 	def edit
 		@goki = Goki.find(params[:id])
 		@genres = Genre.all
+		@gokiselection = ["bossgoki", "facegoki", "goki", "mildgoki", "turkishgoki", "coolgoki", "germangoki", "greengoki", "minigoki", "stripegoki", "whitegoki"]
 	end
 
 	def update
@@ -34,10 +35,13 @@ class GokicollectionsController < ApplicationController
 		redirect_to "/gokicollections"
 	end
 
-	def destroy
-		@goki = Goki.find(params[:id])
-		@goki.destroy
-		redirect_to "/gokicollections"
+	def destroy_all
+		checked_data = params[:check].keys
+		if(Goki.destroy(checked_data))
+			redirect_to "/gokicollections"
+		else
+			render action: "index"
+		end
 	end
 
 

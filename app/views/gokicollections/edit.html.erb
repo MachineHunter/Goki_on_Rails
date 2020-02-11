@@ -7,19 +7,16 @@
 <% end %>
 
 
-
-
 <header>
-	<h1>Edit Goki</h1>
+	<h1>Edit Goki <%= @goki.name %></h1>
 </header>
 
 
 
 <main>
-	<p>image: bossgoki facegoki goki mildgoki turkishgoki coolgoki germangoki greengoki minigoki stripegoki whitegoki</p>
-	<div class="editgoki_form">
-		<%= form_for(@goki, url:{controller:'gokicollections', action:'update'}) do |form| %>
-		<table>
+	<div class="newgoki_form">
+		<%= form_for(@goki, url:{controller:'gokicollections', action:'update'}, html:{class:"ftableform"}) do |form| %>
+		<table class="formtable">
 			<tr>
 				<th>name</th>
 				<td><%= form.text_field :name %></td>
@@ -27,7 +24,7 @@
 
 			<tr>
 				<th>image</th>
-				<td><%= form.text_field :img %></td>
+				<td><%= form.select :img, options_for_select(@gokiselection) %></td>
 			</tr>
 
 			<tr>
@@ -41,15 +38,30 @@
 			</tr>
 
 			<tr>
-				<th></th>
+				<th>submit</th>
 				<td><%= form.submit "edit goki" %></td>
 			</tr>
 		</table>
 		<% end %>
+
+		<table class="genretable">
+		<% @genres.each do |genre| %>
+			<tr>
+				<th><%= genre.id %></th>
+				<td><%= genre.name %></td>
+				<td><%= genre.description %></td>
+			</tr>
+		<% end %>
+		</table>
 	</div>
 </main>
 
 
 
 <footer>
+	<div class="footbar">
+		<%= link_to gokicollections_path do %>
+			<%= image_tag "gokicollections/new/back.png", :size=>"100x100", :class=>"footbutton" %>
+		<% end %>
+	</div>
 </footer>
