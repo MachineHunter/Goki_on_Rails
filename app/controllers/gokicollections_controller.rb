@@ -2,24 +2,22 @@ class GokicollectionsController < ApplicationController
 	layout "gokicollections"
 
 	def index
-		@user = current_user.goki_user
+		@user = current_user.goki_users
 		@gokis = Goki.all
 	end
 
 	def new
-		console
 		@goki = Goki.new
-		@goki.user << current_user
+		# @goki.user = current_user
 		@genres = Genre.all
-		@gokiselection = ["bossgoki", "facegoki", "goki", "mildgoki", "turkishgoki", "coolgoki", "germangoki", "greengoki", "minigoki", "stripegoki", "whitegoki"]
+		@gokiselection = Goki::GOKI_SELECTION
 	end
 
 	def create
-		console
-		@goki = Goki.new
-		@goki.user << current_user
+		@goki = Goki.new(goki_params)
+		# @goki.user << current_user
 		@genres = Genre.all
-		@gokiselection = ["bossgoki", "facegoki", "goki", "mildgoki", "turkishgoki", "coolgoki", "germangoki", "greengoki", "minigoki", "stripegoki", "whitegoki"]
+		@gokiselection = Goki::GOKI_SELECTION
 		if @goki.save
 			redirect_to "/gokicollections"
 		else
@@ -30,7 +28,7 @@ class GokicollectionsController < ApplicationController
 	def edit
 		@goki = Goki.find(params[:id])
 		@genres = Genre.all
-		@gokiselection = ["bossgoki", "facegoki", "goki", "mildgoki", "turkishgoki", "coolgoki", "germangoki", "greengoki", "minigoki", "stripegoki", "whitegoki"]
+		@gokiselection = Goki::GOKI_SELECTION
 	end
 
 	def update
@@ -50,7 +48,9 @@ class GokicollectionsController < ApplicationController
 	end
 
 
-	#private def gokis_params
-	#	params.require(:goki).permit(:img, :name, :description, :genre_id )
-	#end
+	private
+
+	def goki_params
+		params.require(:goki).permit(:img, :name, :description, :genre_id)
+	end
 end
