@@ -1,17 +1,14 @@
 <% if @goki.errors.any? %>
-<ul>
-	<% @goki.errors.full_messages.each do |err| %>
-		<li><%= err %></li>
-	<% end %>
-</ul>
+  <ul>
+    <% @goki.errors.full_messages.each do |err| %>
+      <li><%= err %></li>
+    <% end %>
+  </ul>
 <% end %>
-
 
 <header>
 	<h1>Create Goki</h1>
 </header>
-
-
 
 <main>
 	<div class="newgoki_form">
