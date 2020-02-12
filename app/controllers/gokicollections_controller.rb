@@ -2,17 +2,22 @@ class GokicollectionsController < ApplicationController
 	layout "gokicollections"
 
 	def index
+		@user = current_user.goki_user
 		@gokis = Goki.all
 	end
 
 	def new
+		console
 		@goki = Goki.new
+		@goki.user << current_user
 		@genres = Genre.all
 		@gokiselection = ["bossgoki", "facegoki", "goki", "mildgoki", "turkishgoki", "coolgoki", "germangoki", "greengoki", "minigoki", "stripegoki", "whitegoki"]
 	end
 
 	def create
-		@goki = Goki.new(gokis_params)
+		console
+		@goki = Goki.new
+		@goki.user << current_user
 		@genres = Genre.all
 		@gokiselection = ["bossgoki", "facegoki", "goki", "mildgoki", "turkishgoki", "coolgoki", "germangoki", "greengoki", "minigoki", "stripegoki", "whitegoki"]
 		if @goki.save
@@ -45,7 +50,7 @@ class GokicollectionsController < ApplicationController
 	end
 
 
-	private def gokis_params
-		params.require(:goki).permit(:img, :name, :description, :genre_id)
-	end
+	#private def gokis_params
+	#	params.require(:goki).permit(:img, :name, :description, :genre_id )
+	#end
 end
