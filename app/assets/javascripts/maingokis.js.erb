@@ -2,8 +2,6 @@ $(document).on("turbolinks:load", function() {
 	var space   = document.getElementById("spacebar");
 	var environ = document.getElementById("environ");
 	var goki = document.getElementById("goki");
-	var x=0;
-	var y=0;
 	var speed=20;
 
 
@@ -33,20 +31,36 @@ $(document).on("turbolinks:load", function() {
 		var pos = $("#goki").offset();
 
 		if(key==uparrow && pos.top>160){
-			y-=speed;
-			$("#goki").css("marginTop", y+"px");
+			$("#goki").offset(function(i,elem){
+				return{
+					top:  elem.top - speed,
+					left: elem.left
+				};
+			});
 		}
 		if(key==downarrow && pos.top<650){
-			y+=speed;
-			$("#goki").css("marginTop", y+"px");
+			$("#goki").offset(function(i,elem){
+				return{
+					top:  elem.top + speed,
+					left: elem.left
+				};
+			});
 		}
 		if(key==leftarrow && pos.left>-10){
-			x-=speed;
-			$("#goki").css("marginLeft", x+"px");
+			$("#goki").offset(function(i,elem){
+				return{
+					top:  elem.top,
+					left: elem.left - speed
+				};
+			});
 		}
 		if(key==rightarrow && pos.left<1236){
-			x+=speed;
-			$("#goki").css("marginLeft", x+"px");
+			$("#goki").offset(function(i,elem){
+				return{
+					top:  elem.top,
+					left: elem.left + speed
+				};
+			});
 		}
 
 
@@ -82,6 +96,8 @@ $(document).on("turbolinks:load", function() {
 	var minspeed = 10;
 	var arrow_speed = 50;
 	var score = 0;
+	var ghalfwidth = Number($("#goki").css("width").slice(0,-2))/2;
+	var ghalfheight = Number($("#goki").css("height").slice(0,-2))/2;
 
 
 	//arrow generation
@@ -104,7 +120,7 @@ $(document).on("turbolinks:load", function() {
 		function(){
 			generate_arrow();
 		}
-	, 2000);
+	, 500);
 
 
 	//arrow move & destroy & collision
@@ -112,10 +128,10 @@ $(document).on("turbolinks:load", function() {
 		function(){
 			$(".arrow").each(function(i,elem){
 				//collision
-				var xdist = $("#goki").position().left - $(elem).position().left;
-				var ydist = $("#goki").position().top - $(elem).position().top;
+				var xdist = $("#goki").position().left + ghalfwidth - $(elem).position().left;
+				var ydist = $("#goki").position().top  + ghalfheight - $(elem).position().top;
 				var dist  = Math.pow(xdist,2) + Math.pow(ydist,2);
-				if(dist<60000) {
+				if(dist<2000) {
 					$("#goki").remove();
 					window.location.replace("/gokicollections");
 				}
