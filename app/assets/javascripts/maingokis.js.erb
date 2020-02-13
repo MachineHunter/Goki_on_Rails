@@ -83,6 +83,8 @@ $(document).on("turbolinks:load", function() {
 	var arrow_speed = 50;
 	var score = 0;
 
+
+	//arrow generation
 	function generate_arrow() {
 		var arrow = document.createElement("img");
 		arrow.src = "<%= asset_path "maingokis/index/enemy/arrow.png" %>";
@@ -102,18 +104,31 @@ $(document).on("turbolinks:load", function() {
 		function(){
 			generate_arrow();
 		}
-	, 500);
+	, 2000);
 
+
+	//arrow move & destroy & collision
 	setInterval(
 		function(){
 			$(".arrow").each(function(i,elem){
+				//collision
+				var xdist = $("#goki").position().left - $(elem).position().left;
+				var ydist = $("#goki").position().top - $(elem).position().top;
+				var dist  = Math.pow(xdist,2) + Math.pow(ydist,2);
+				if(dist<60000) {
+					$("#goki").remove();
+					window.location.replace("/gokicollections");
+				}
+
+				//destroy
 				if($(elem).position().left < 0){
 					$(elem).remove();
 					score += 1;
 					document.getElementById("score").innerHTML = String(score);
-					console.log(score);
 				}
 			});
+
+			//arrow move
 			$(".arrow").offset(function(i,elem){
 				return {
 					top:  elem.top,
