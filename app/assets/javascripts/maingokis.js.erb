@@ -8,6 +8,7 @@ $(document).on("turbolinks:load", function() {
 
 
 
+
 	//movement
 	window.addEventListener("keydown", handleKeydown);
 	var uparrow    = 38;
@@ -15,6 +16,7 @@ $(document).on("turbolinks:load", function() {
 	var leftarrow  = 37;
 	var rightarrow = 39;
 	var spacekey   = 32;
+
 
 	//idle
 	anime({
@@ -28,26 +30,27 @@ $(document).on("turbolinks:load", function() {
 	//key movement
 	function handleKeydown(event) {
 		var key=event.keyCode;
+		var pos = $("#goki").offset();
 
-		if(key==uparrow){
+		if(key==uparrow && pos.top>100){
 			y-=dist;
 			$("#goki").css("marginTop", y+"px");
 		}
-		if(key==downarrow){
+		if(key==downarrow && pos.top<695){
 			y+=dist;
 			$("#goki").css("marginTop", y+"px");
 		}
-		if(key==leftarrow){
+		if(key==leftarrow && pos.left>-40){
 			x-=dist;
 			$("#goki").css("marginLeft", x+"px");
 		}
-		if(key==rightarrow){
+		if(key==rightarrow && pos.left<1236){
 			x+=dist;
 			$("#goki").css("marginLeft", x+"px");
 		}
 
 
-		//attack
+		//space
 		if(key==spacekey) {
 			anime({
 				targets: goki,
@@ -81,8 +84,6 @@ $(document).on("turbolinks:load", function() {
 	)
 
 
-
-
 	//dokuro
 	$("#spacebar").click(
 		function(){
@@ -96,8 +97,6 @@ $(document).on("turbolinks:load", function() {
 	)
 
 	
-
-
 
 	//hover
 	$(".footbutton").hover(
