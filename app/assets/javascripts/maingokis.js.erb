@@ -4,7 +4,7 @@ $(document).on("turbolinks:load", function() {
 	var goki = document.getElementById("goki");
 	var x=0;
 	var y=0;
-	var dist=20;
+	var speed=20;
 
 
 
@@ -32,20 +32,20 @@ $(document).on("turbolinks:load", function() {
 		var key=event.keyCode;
 		var pos = $("#goki").offset();
 
-		if(key==uparrow && pos.top>100){
-			y-=dist;
+		if(key==uparrow && pos.top>160){
+			y-=speed;
 			$("#goki").css("marginTop", y+"px");
 		}
-		if(key==downarrow && pos.top<695){
-			y+=dist;
+		if(key==downarrow && pos.top<650){
+			y+=speed;
 			$("#goki").css("marginTop", y+"px");
 		}
-		if(key==leftarrow && pos.left>-40){
-			x-=dist;
+		if(key==leftarrow && pos.left>-10){
+			x-=speed;
 			$("#goki").css("marginLeft", x+"px");
 		}
 		if(key==rightarrow && pos.left<1236){
-			x+=dist;
+			x+=speed;
 			$("#goki").css("marginLeft", x+"px");
 		}
 
@@ -60,6 +60,71 @@ $(document).on("turbolinks:load", function() {
 			});
 		}
 	}
+
+
+
+
+	//enemy move
+	anime({
+		targets: ".jet",
+		translateY: 10,
+		direction: "alternate",
+		loop: true
+	});
+
+
+
+	//arrows
+	var field = document.getElementsByClassName("heroes")[0];
+	var maxtop = 750;
+	var mintop = 220;
+	var maxspeed = 30;
+	var minspeed = 10;
+	var arrow_speed = 50;
+	var score = 0;
+
+	function generate_arrow() {
+		var arrow = document.createElement("img");
+		arrow.src = "<%= asset_path "maingokis/index/enemy/arrow.png" %>";
+		arrow.style.width = "120px";
+		arrow.style.height = "30px";
+		arrow.style.float = "right";
+		arrow.style.left = "1400px";
+		arrow.style.top = String(Math.floor(
+			Math.random()*(maxtop-mintop) + mintop
+		)) + "px";
+		arrow.style.position = "absolute";
+		arrow.classList.add("arrow");
+		field.appendChild(arrow);
+	}
+
+	setInterval(
+		function(){
+			generate_arrow();
+		}
+	, 500);
+
+	setInterval(
+		function(){
+			$(".arrow").each(function(i,elem){
+				if($(elem).position().left < 0){
+					$(elem).remove();
+					score += 1;
+					document.getElementById("score").innerHTML = String(score);
+					console.log(score);
+				}
+			});
+			$(".arrow").offset(function(i,elem){
+				return {
+					top:  elem.top,
+					left: elem.left - arrow_speed
+				};
+			});
+		}
+	, 50);
+
+	
+
 	
 
 

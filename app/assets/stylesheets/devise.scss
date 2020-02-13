@@ -31,8 +31,11 @@ body {
 	main {
 		height: 73%;
 		background-image: image_url("maingokis/index/mainbg/grass.png");
-		font-size: 30px;
+		font-size: 40px;
 		border-width: 0px;
+		text-shadow: 10px 20px 30px red;
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: darkred;
 	}
 
 
@@ -42,10 +45,11 @@ body {
 		background: image_url("maingokis/index/footer/footerimg.png") repeat center center / 200px 200px;
 
 		a {
-			font-size: 30px;
-			border: solid 1px purple;
-			background-color: black;
-			color: purple;
+			font-size: 40px;
+			color: black;
+			text-shadow: 10px 20px 30px red;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color: darkred;
 		}
 	}
 }

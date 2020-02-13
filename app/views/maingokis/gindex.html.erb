@@ -2,15 +2,24 @@
 	<h1>Gokiburi Is Your Friend</h1>
 	<% if user_signed_in? %>
 		<%= link_to destroy_user_session_path, method: :delete do %>
-			<%= image_tag "maingokis/share/logout.png", :size=>"120x60", :id=>"logoutbutton" %>
+			<%= image_tag "maingokis/share/logout.png", :size=>"100x100", :id=>"logoutbutton" %>
 		<% end %>
 	<% end %>
+	<p>Score: </p><p id="score">0</p>
 </header>
 
 
 
 <main class="main">
-	<%= image_tag "maingokis/index/heroes/"+@goki.img+".png", :size=>"230x130", :id=>"goki" %>
+	<div class="heroes">
+		<%= image_tag "maingokis/index/heroes/"+@goki.img+".png", :size=>"230x130", :id=>"goki" %>
+	</div>
+
+	<div class="enemies">
+		<%= image_tag "maingokis/index/enemy/jetman.png", :size=>"80x180", :class=>"jet" %>
+		<%= image_tag "maingokis/index/enemy/yjetman.png", :size=>"80x180", :class=>"jet" %>
+		<%= image_tag "maingokis/index/enemy/bjetman.png", :size=>"100x190", :class=>"jet" %>
+	</div>
 </main>
 
 

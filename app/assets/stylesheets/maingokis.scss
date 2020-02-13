@@ -42,6 +42,21 @@ body {
 		background-size: 1500px 700px;
 		border-top: solid 5px black;
 		border-bottom: solid 5px black;
+
+		.heroes {
+			height: 100%;
+			width: 90%;
+			float: left;
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		.enemies {
+			text-align: center;
+			height: 100%;
+			width: 10%;
+			float: right;
+		}
 	}
 
 	footer {
