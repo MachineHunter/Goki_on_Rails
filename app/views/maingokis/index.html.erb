@@ -1,24 +1,29 @@
 <header>
-	<h1>Gokiburi Is Your Friend</h1>
+	<h1>Save Goki From the Evil Jetman!!!</h1>
 	<% if user_signed_in? %>
 		<%= link_to destroy_user_session_path, method: :delete do %>
 			<%= image_tag "maingokis/share/logout.png", :size=>"100x100", :id=>"logoutbutton" %>
 		<% end %>
 	<% end %>
-	<p>Score: </p><p id="score">0</p>
 </header>
 
 
 
 <main class="main">
-	<div class="heroes">
-		<%= image_tag "maingokis/index/heroes/goki.png", :size=>"230x130", :id=>"goki" %>
-	</div>
-
-	<div class="enemies">
-		<%= image_tag "maingokis/index/enemy/jetman.png", :size=>"80x180", :class=>"jet" %>
-		<%= image_tag "maingokis/index/enemy/yjetman.png", :size=>"80x180", :class=>"jet" %>
-		<%= image_tag "maingokis/index/enemy/bjetman.png", :size=>"100x190", :class=>"jet" %>
+	<div id="explanation">
+		<h3>Movement:</h3>
+		<p>press arrow keys to move the goki up/down/right/left</p>
+		<p>press space bar to ___</p>
+		
+		<h3>Icons</h3>
+		<p>up right icon makes you log out</p>
+		<p>bottom left icon is ___</p>
+		<p>bottom middle icon changes background image</p>
+		<p>bottom right icon moves you to gokicollection page</p>
+		
+		<h3>Goki Collection</h3>
+		<p>you can add/edit/destroy goki in gokicollection page.</p>
+		<p>press select to choose goki and regist attack from evil gokijet!</p>
 	</div>
 </main>
 

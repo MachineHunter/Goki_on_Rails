@@ -132,8 +132,12 @@ $(document).on("turbolinks:load", function() {
 				var ydist = $("#goki").position().top  + ghalfheight - $(elem).position().top;
 				var dist  = Math.pow(xdist,2) + Math.pow(ydist,2);
 				if(dist<2000) {
-					$("#goki").remove();
-					window.location.replace("/gokicollections");
+					anime({
+						targets: goki,
+						rotate: 360,
+						duration: 1000
+					});
+					$.post("/maingokis/addgold", {gold:score});
 				}
 
 				//destroy

@@ -33,6 +33,14 @@ body {
 			padding: 10px;
 		}
 
+		#score_board {
+			background: linear-gradient(white, gold);
+			margin-left: auto;
+			margin-buttom: 5px;
+			margin-top: 10px;
+			border: solid 5px black;
+			height: 80%;
+		}
 	}
 
 	main {
@@ -56,6 +64,14 @@ body {
 			height: 100%;
 			width: 10%;
 			float: right;
+		}
+
+		#explanation {
+			text-align: center;
+			text-shadow: 10px 20px 30px purple;
+			font-familiy: "Homemade Apple", cursive;
+			-webkit-text-stroke-width: 1px;
+			-webkit-text-stroke-color: purple;
 		}
 	}
 
