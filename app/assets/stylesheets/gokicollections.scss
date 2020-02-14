@@ -18,6 +18,16 @@ body {
 		display: flex;
 		flex-wrap: wrap;
 
+		#username {
+			color: darkgray;
+			font-size: 37px;
+			margin-left: 10px;
+			padding: 10px;
+			-webkit-text-stroke-width: 2px;
+			-webkit-text-stroke-color: black;
+			text-shadow: 10px 20px 30px purple;
+		}
+
 		h1 {
 			color: black;
 			text-shadow: 10px 20px 30px purple;
