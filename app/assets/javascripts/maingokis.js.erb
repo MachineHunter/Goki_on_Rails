@@ -3,6 +3,7 @@ $(document).on("turbolinks:load", function() {
 	var environ = document.getElementById("environ");
 	var goki = document.getElementById("goki");
 	var speed=20;
+	var score = 0;
 
 
 
@@ -69,9 +70,10 @@ $(document).on("turbolinks:load", function() {
 			anime({
 				targets: goki,
 				translateX: 200,
-				duration: 50,
+				duration: 300,
 				direction: "alternate"
 			});
+			score += 1;
 		}
 	}
 
@@ -95,7 +97,6 @@ $(document).on("turbolinks:load", function() {
 	var maxspeed = 30;
 	var minspeed = 10;
 	var arrow_speed = 50;
-	var score = 0;
 	var ghalfwidth = Number($("#goki").css("width").slice(0,-2))/2;
 	var ghalfheight = Number($("#goki").css("height").slice(0,-2))/2;
 
@@ -193,6 +194,7 @@ $(document).on("turbolinks:load", function() {
 				translateX: 20,
 				duration: 1500
 			});
+			score += 10;
 		}
 	)
 
