@@ -1,6 +1,7 @@
 class Goki < ApplicationRecord
 	belongs_to :genre
-	has_many :move
+	belongs_to :movement1, class_name: "Movement", foreign_key: "movement1_id"
+	belongs_to :movement2, class_name: "Movement", foreign_key: "movement2_id"
 	has_many :goki_users, dependent: :destroy
 	has_many :users, through: :goki_users
 

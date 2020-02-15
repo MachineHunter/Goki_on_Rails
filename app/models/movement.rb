@@ -1,5 +1,6 @@
 class Movement < ApplicationRecord
-	belongs_to :goki
+	has_many :movement1_gokis, class_name:"Goki", foreign_key: "movement1_id"
+	has_many :movement2_gokis, class_name:"Goki", foreign_key: "movement2_id"
 
-	validates :name, presence: {message: 'must not be empty.'}
+	validates :name, :img, presence: {message: 'must not be empty.'}
 end
