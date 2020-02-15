@@ -8,7 +8,7 @@ $(document).on("turbolinks:load", function() {
 
 
 
-	//movement
+	//moving
 	window.addEventListener("keydown", handleKeydown);
 	var uparrow    = 38;
 	var downarrow  = 40;
@@ -26,7 +26,7 @@ $(document).on("turbolinks:load", function() {
 	});
 
 
-	//key movement
+	//key moving
 	function handleKeydown(event) {
 		var key=event.keyCode;
 		var pos = $("#goki").offset();
@@ -185,18 +185,57 @@ $(document).on("turbolinks:load", function() {
 	)
 
 
-	//dokuro
-	$("#spacebar").click(
-		function(){
+
+	
+	//movement
+	if($("#shiftY").length){
+		$("#shiftY").click(function(){
+			anime({
+				targets: goki,
+				translateY: 120,
+				duration: 1000
+			});
+		})
+	}
+
+	if($("#rotate").length){
+		$("#rotate").click(function(){
 			anime({
 				targets: goki,
 				rotate: 1080,
-				duration: 5000
+				duration: 1000
 			});
-			score += 10;
-		}
-	)
-
+		})
+	}
+	
+	if($("#shiftback").length){
+		$("#shiftback").click(function(){
+			anime({
+				targets: goki,
+				translateX: -300,
+				duration: 2000
+			});
+		})
+	}
+	
+	if($("#enlarge").length){
+		$("#enlarge").click(function(){
+			anime({
+				targets: goki,
+				scale: 3,
+				duration: 2000
+			});
+		})
+	}
+	
+	if($("#disappear").length){
+		$("#disappear").click(function(){
+			goki.style.display = "none";
+			window.setTimeout(function(){
+				goki.style.display = "block";
+			}, 3000);
+		})
+	}
 	
 
 	//hover

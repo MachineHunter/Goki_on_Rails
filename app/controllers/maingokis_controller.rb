@@ -6,6 +6,8 @@ class MaingokisController < ApplicationController
 
 	def gindex
 		@goki = Goki.find(params[:id])
+		@move1 = Movement.find(@goki.movement1_id)
+		@move2 = Movement.find(@goki.movement2_id)
 	end
 
 	def addgold
