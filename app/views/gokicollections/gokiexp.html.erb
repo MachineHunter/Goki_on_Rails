@@ -1,0 +1,52 @@
+<header>
+	<h1>Goki Explanation</h1>
+</header>
+
+
+
+
+<main>
+	<div class="swiper-container">
+		<div class="swiper-wrapper">
+			<% @gmoves.each do |g| %>
+				<div class="swiper-slide">
+					<div class="slide_content">
+						<span>
+							<%= image_tag "maingokis/index/footer/move/"+Movement.find(g.move1).img+".png", :size=>"120x120" %>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<%= image_tag "maingokis/index/heroes/"+g.goki+".png", :size=>"300x169" %>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<%= image_tag "maingokis/index/footer/move/"+Movement.find(g.move2).img+".png", :size=>"120x120" %>
+						</span>
+						<h2><%= g.goki %></h2>
+						<p id="goki_about"></p>
+
+						<h3>(<<<) <%= Movement.find(g.move1).name %></h3>
+						<p><%= Movement.find(g.move1).description %></p>
+
+						<h3><%= Movement.find(g.move2).name %> (>>>)</h3>
+						<p><%= Movement.find(g.move2).description %></p>
+					</div>
+				</div>
+			<% end %>
+		</div>
+
+		<div class="swiper-pagination"></div>
+
+		<div class="swiper-button-prev"></div>
+		<div class="swiper-button-next"></div>
+
+		<div class="swiper-scrollbar"></div>
+	</div>
+</main>
+
+
+
+
+<footer>
+	<div class="footbar">
+		<%= link_to gokicollections_path do %>
+			<%= image_tag "gokicollections/new/back.png", :size=>"100x100", :class=>"footbutton" %>
+		<% end %>
+	</div>
+</footer>

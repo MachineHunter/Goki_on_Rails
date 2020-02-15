@@ -76,6 +76,12 @@ class GokicollectionsController < ApplicationController
 	end
 
 
+
+	def gokiexp
+		@gmoves = Gmove.all
+	end
+
+
 	private def goki_params
 		params.require(:goki).permit(:img, :name, :description, :genre_id )
 	end

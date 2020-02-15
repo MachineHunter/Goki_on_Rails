@@ -47,6 +47,10 @@
 		
 		<%= image_submit_tag "gokicollections/index/deletebutton.png", :class=>"footbutton", :id=>"deletebutton" %>
 
+		<%= link_to gokicollections_gokiexp_path do %>
+			<%= image_tag "gokicollections/index/book.png", :size=>"100x100", :class=>"footbutton" %>
+		<% end %>
+
 		<p id="gold">Gold: <%= current_user.gold %></p>
 	</div>
 </foot>

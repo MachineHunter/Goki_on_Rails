@@ -110,6 +110,7 @@ body {
 		}
 
 
+
 		.newgoki_form {
 			height: 100%;
 			width: 100%;
@@ -168,6 +169,36 @@ body {
 			}
 		}
 
+
+
+		//goki explain slide
+		.swiper-container {
+			width: 100%;
+			height: 100%;
+			background: image_url("gokicollections/new/maintex.png") repeat center center / 300px 200px;
+
+			.swiper-slide{
+				width: 80%;
+				height: 80%;
+				text-align: center;
+				margin-top: 40px;
+				background: image_url("gokicollections/gokiexp/scroll.png") no-repeat center center / 1200px 1150px;
+				display:flex;
+				flex-wrap: wrap;
+				justify-content: space-around;
+
+				.slide_content{
+					width: 65%;
+					word-wrap: break-word;
+				}
+			}
+
+
+			.swiper-pagination {
+				background-color: rgba(115,66,41,0.5);
+			}
+		}
+
 	}
 
 
@@ -199,3 +230,7 @@ body {
 		}
 	}
 }
+
+
+
+

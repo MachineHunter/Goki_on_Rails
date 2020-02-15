@@ -18,6 +18,7 @@ $(document).on("turbolinks:load", function() {
 	}
 
 
+
 	//hover
 	$(".footbutton").hover(
 		function(){
@@ -29,4 +30,31 @@ $(document).on("turbolinks:load", function() {
 			});
 		}
 	)
+
+
+
+	//swiper
+	var gokiswipe = new Swiper(".swiper-container",{
+		loop: true,
+		speed: 600,
+		slidesPerView: 1,
+		spaceBetween: 10,
+		direction: "horizontal",
+		effect: "slide", //slide fade cube coverflow flip
+
+		navigation: {
+			nextEl: ".swiper-button-next",
+			prevEl: ".swiper-button-prev"
+		},
+
+		keyboard: {
+			enabled: true,
+		},
+
+		pagination: {
+			el: ".swiper-pagination",
+			type: "bullets",
+			clickable: true
+		}
+	});
 });
