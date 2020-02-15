@@ -15,6 +15,8 @@ $(document).on("turbolinks:load", function() {
 	var leftarrow  = 37;
 	var rightarrow = 39;
 	var spacekey   = 32;
+	var key1       = 49;
+	var key2       = 50;
 
 
 	//idle
@@ -62,6 +64,12 @@ $(document).on("turbolinks:load", function() {
 					left: elem.left + speed
 				};
 			});
+		}
+		if(key==key1){
+			document.getElementsByClassName("move1")[0].click();
+		}
+		if(key==key2){
+			document.getElementsByClassName("move2")[0].click();
 		}
 
 
@@ -186,15 +194,17 @@ $(document).on("turbolinks:load", function() {
 
 
 
+
 	
-	//movement
+	//movement of goki with icon
 	if($("#shiftY").length){
 		$("#shiftY").click(function(){
 			anime({
 				targets: goki,
 				translateY: 120,
-				duration: 1000
+				duration: 450
 			});
+			score += 5;
 		})
 	}
 
@@ -205,6 +215,7 @@ $(document).on("turbolinks:load", function() {
 				rotate: 1080,
 				duration: 1000
 			});
+			score += 10;
 		})
 	}
 	
@@ -213,8 +224,10 @@ $(document).on("turbolinks:load", function() {
 			anime({
 				targets: goki,
 				translateX: -300,
-				duration: 2000
+				direction: "alternate",
+				duration: 1000
 			});
+			score += 5;
 		})
 	}
 	
@@ -223,9 +236,11 @@ $(document).on("turbolinks:load", function() {
 			anime({
 				targets: goki,
 				scale: 3,
-				duration: 2000
+				direction: "alternate",
+				duration: 6000
 			});
 		})
+		score += 30;
 	}
 	
 	if($("#disappear").length){
@@ -235,8 +250,13 @@ $(document).on("turbolinks:load", function() {
 				goki.style.display = "block";
 			}, 3000);
 		})
+		score += 5;
 	}
 	
+
+
+
+
 
 	//hover
 	$(".footbutton").hover(

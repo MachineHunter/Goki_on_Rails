@@ -1,5 +1,7 @@
 <header>
-	<h2 id="username"><%= current_user.name %></h2>
+	<%= link_to maingokis_path do %>
+		<h2 id="username"><%= current_user.name %></h2>
+	<% end %>
 	<h1>Goki Collection</h1>
 	<% if user_signed_in? %>
 		<%= link_to destroy_user_session_path, method: :delete do %>
