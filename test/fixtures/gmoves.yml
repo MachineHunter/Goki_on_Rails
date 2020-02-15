@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  goki: MyText
+  move1: 1
+  move2: 1
+
+two:
+  goki: MyText
+  move1: 1
+  move2: 1

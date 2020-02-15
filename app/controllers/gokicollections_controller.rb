@@ -6,14 +6,25 @@ class GokicollectionsController < ApplicationController
 		@gokis = Goki.all
 	end
 
+
 	def new
 		@goki = Goki.new
 		@genres = Genre.all
 		@gokiselection = Goki::GOKI_SELECTION
 	end
 
+
+
 	def create
 		@goki = Goki.new(goki_params)
+		
+		Gmove.all.each do |g|
+			if @goki.img == g.goki
+				@goki.movement1 = Movement.find(g.move1)
+				@goki.movement2 = Movement.find(g.move2)
+			end
+		end
+
 		@goki_user = GokiUser.new(user:current_user, goki:@goki)
 		@genres = Genre.all
 		@gokiselection = Goki::GOKI_SELECTION
@@ -24,18 +35,36 @@ class GokicollectionsController < ApplicationController
 		end
 	end
 
+
+
 	def edit
 		@goki = Goki.find(params[:id])
 		@genres = Genre.all
 		@gokiselection = Goki::GOKI_SELECTION
 	end
 
+
+
 	def update
 		@goki = Goki.find(params[:id])
 		@genres = Genre.all
 		@goki.update(goki_params)
-		redirect_to "/gokicollections"
+
+		Gmove.all.each do |g|
+			if @goki.img == g.goki
+				@goki.movement1 = Movement.find(g.move1)
+				@goki.movement2 = Movement.find(g.move2)
+			end
+		end
+		
+		if @goki.save
+			redirect_to "/gokicollections"
+		else
+			render "edit"
+		end
 	end
+
+
 
 	def destroy_all
 		checked_data = params[:check].keys
