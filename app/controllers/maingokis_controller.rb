@@ -11,9 +11,13 @@ class MaingokisController < ApplicationController
 	end
 
 	def addgold
-		current_user.gold = params[:gold].to_i + current_user.gold
+		score = params[:gold].to_i
+		current_user.gold = score + current_user.gold
 		current_goki = Goki.find(params[:goki_id].to_i)
 		current_goki.status = "dead"
+		if score > current_user.max_score
+			current_user.max_score = score
+		end
 		if current_user.save && current_goki.save
 			redirect_to "/gokicollections"
 		else

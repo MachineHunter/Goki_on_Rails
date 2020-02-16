@@ -8,4 +8,5 @@ class User < ApplicationRecord
 	has_many :gokis, through: :goki_users
 
 	attribute :gold, default: 0
+	attribute :max_score, default: 0
 end
