@@ -4,7 +4,8 @@ $(document).on("turbolinks:load", function() {
 	var goki = document.getElementById("goki");
 	var speed=20;
 	var score = 0;
-
+	var clickable = true;
+	var clicktoclicktime = 500;
 
 
 
@@ -199,61 +200,87 @@ $(document).on("turbolinks:load", function() {
 	
 	//movement of goki with icon
 	if($("#shiftY").length){
+		var shiftYduration = 450;
 		$("#shiftY").click(function(){
-			anime({
-				targets: goki,
-				translateY: 120,
-				duration: 450
-			});
-			score += 5;
+			if(clickable){
+				clickable = false;
+				anime({
+					targets: goki,
+					translateY: 120,
+					duration: shiftYduration
+				});
+				score += 5;
+				window.setTimeout(function(){clickable=true;}, shiftYduration+clicktoclicktime);
+			}
 		})
 	}
 
 	if($("#rotate").length){
+		var rotateduration = 1000;
 		$("#rotate").click(function(){
-			anime({
-				targets: goki,
-				rotate: 1080,
-				duration: 1000
-			});
-			score += 10;
+			if(clickable){
+				clickable = false;
+				console.log(clickable);
+				anime({
+					targets: goki,
+					rotate: 1080,
+					duration: rotateduration
+				});
+				score += 10;
+				window.setTimeout(function(){clickable=true; console.log(clickable)}, rotateduration+clicktoclicktime);
+			}
 		})
 	}
 	
 	if($("#shiftback").length){
+		var shiftbackduration = 1000;
 		$("#shiftback").click(function(){
-			anime({
-				targets: goki,
-				translateX: -300,
-				direction: "alternate",
-				duration: 1000
-			});
-			score += 5;
+			if(clickable){
+				clickable = false;
+				anime({
+					targets: goki,
+					translateX: -300,
+					direction: "alternate",
+					duration: shiftbackduration
+				});
+				score += 5;
+				window.setTimeout(function(){clickable=true;}, shiftbackduration+clicktoclicktime);
+			}
 		})
 	}
 	
 	if($("#enlarge").length){
+		var enlargeduration = 6000;
 		$("#enlarge").click(function(){
-			anime({
-				targets: goki,
-				scale: 3,
-				direction: "alternate",
-				duration: 6000
-			});
+			if(clickable){
+				clickable = false;
+				anime({
+					targets: goki,
+					scale: 3,
+					direction: "alternate",
+					duration: 6000
+				});
+				score += 30;
+				window.setTimeout(function(){clickable=true;}, enlargeduration+clicktoclicktime);
+			}
 		})
-		score += 30;
 	}
 	
 	if($("#disappear").length){
+		var disappearduration = 3000;
 		$("#disappear").click(function(){
-			goki.style.display = "none";
-			window.setTimeout(function(){
-				goki.style.display = "block";
-			}, 3000);
+			if(clickable){
+				clickable = false;
+				goki.style.display = "none";
+				window.setTimeout(function(){
+					goki.style.display = "block";
+					clickable=true;
+				}, disappearduration);
+			}
+			score += 5;
 		})
-		score += 5;
 	}
-	
+
 
 
 
