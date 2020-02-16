@@ -33,7 +33,9 @@ class GokicollectionsController < ApplicationController
 		@goki_user = GokiUser.new(user:current_user, goki:@goki)
 		@genres = Genre.all
 		@gokiselection = Goki::GOKI_SELECTION
-		current_user.gold -= @gokiadd_gold.cost
+		if current_user.gokis.count > 0
+			current_user.gold -= @gokiadd_gold.cost
+		end
 
 		if @goki.save && @goki_user.save && current_user.save
 			redirect_to "/gokicollections"
@@ -103,6 +105,12 @@ class GokicollectionsController < ApplicationController
 		else
 			render action: "index"
 		end
+	end
+
+
+
+	def ranking
+		@rankers = User.all.order("max_score desc").limit(10);
 	end
 
 
