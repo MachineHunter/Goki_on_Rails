@@ -2,10 +2,21 @@ $(document).on("turbolinks:load", function() {
 	var space   = document.getElementById("spacebar");
 	var environ = document.getElementById("environ");
 	var goki = document.getElementById("goki");
-	var speed=20;
 	var score = 0;
 	var clickable = true;
-	var clicktoclicktime = 500;
+
+	if(gon.genre=="speedy"){
+		var speed = 45;
+		var clicktoclicktime = 2000;
+	}
+	else if(gon.genre=="balance"){
+		var speed = 30;
+		var clicktoclicktime = 1200;
+	}
+	else if(gon.genre="heavy"){
+		var speed = 20;
+		var clicktoclicktime = 500;
+	}
 
 
 
@@ -147,8 +158,7 @@ $(document).on("turbolinks:load", function() {
 						rotate: 360,
 						duration: 1000
 					});
-					var thisurl = (window.location.href).split("/");
-					$.post("/maingokis/addgold", {gold:score, goki_id:thisurl[thisurl.length-1]});
+					$.post("/maingokis/addgold", {gold:score, goki_id:gon.goki.id});
 				}
 
 				//destroy
@@ -204,13 +214,17 @@ $(document).on("turbolinks:load", function() {
 		$("#shiftY").click(function(){
 			if(clickable){
 				clickable = false;
+				$(".movebutton").css("opacity", "0.5");
 				anime({
 					targets: goki,
 					translateY: 120,
 					duration: shiftYduration
 				});
 				score += 5;
-				window.setTimeout(function(){clickable=true;}, shiftYduration+clicktoclicktime);
+				window.setTimeout(function(){
+					clickable=true;
+					$(".movebutton").css("opacity", "1.0");
+				}, shiftYduration+clicktoclicktime);
 			}
 		})
 	}
@@ -220,14 +234,17 @@ $(document).on("turbolinks:load", function() {
 		$("#rotate").click(function(){
 			if(clickable){
 				clickable = false;
-				console.log(clickable);
+				$(".movebutton").css("opacity", "0.5");
 				anime({
 					targets: goki,
 					rotate: 1080,
 					duration: rotateduration
 				});
 				score += 10;
-				window.setTimeout(function(){clickable=true; console.log(clickable)}, rotateduration+clicktoclicktime);
+				window.setTimeout(function(){
+					clickable=true;
+					$(".movebutton").css("opacity", "1.0");
+				}, rotateduration+clicktoclicktime);
 			}
 		})
 	}
@@ -237,6 +254,7 @@ $(document).on("turbolinks:load", function() {
 		$("#shiftback").click(function(){
 			if(clickable){
 				clickable = false;
+				$(".movebutton").css("opacity", "0.5");
 				anime({
 					targets: goki,
 					translateX: -300,
@@ -244,24 +262,31 @@ $(document).on("turbolinks:load", function() {
 					duration: shiftbackduration
 				});
 				score += 5;
-				window.setTimeout(function(){clickable=true;}, shiftbackduration+clicktoclicktime);
+				window.setTimeout(function(){
+					clickable=true;
+					$(".movebutton").css("opacity", "1.0");
+				}, shiftbackduration*2+clicktoclicktime);
 			}
 		})
 	}
 	
 	if($("#enlarge").length){
-		var enlargeduration = 6000;
+		var enlargeduration = 3000;
 		$("#enlarge").click(function(){
 			if(clickable){
 				clickable = false;
+				$(".movebutton").css("opacity", "0.5");
 				anime({
 					targets: goki,
 					scale: 3,
 					direction: "alternate",
-					duration: 6000
+					duration: enlargeduration
 				});
 				score += 30;
-				window.setTimeout(function(){clickable=true;}, enlargeduration+clicktoclicktime);
+				window.setTimeout(function(){
+					clickable=true;
+					$(".movebutton").css("opacity", "1.0");
+				}, enlargeduration*2+clicktoclicktime);
 			}
 		})
 	}
@@ -271,10 +296,14 @@ $(document).on("turbolinks:load", function() {
 		$("#disappear").click(function(){
 			if(clickable){
 				clickable = false;
+				$(".movebutton").css("opacity", "0.5");
 				goki.style.display = "none";
 				window.setTimeout(function(){
 					goki.style.display = "block";
-					clickable=true;
+					window.setTimeout(function(){
+						clickable=true;
+						$(".movebutton").css("opacity", "1.0");
+					}, clicktoclicktime);
 				}, disappearduration);
 			}
 			score += 5;

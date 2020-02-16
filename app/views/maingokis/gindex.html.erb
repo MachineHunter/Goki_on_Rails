@@ -28,12 +28,11 @@
 
 <footer>
 	<div class="controller">
-		<%= image_tag "maingokis/index/footer/move/"+@move1.img+".png", :size=>"100x100", :id=>@move1.name, :class=>"footbutton move1" %>
-		<%= image_tag "maingokis/index/footer/move/"+@move2.img+".png", :size=>"100x100", :id=>@move2.name, :class=>"footbutton move2" %>
+		<%= image_tag "maingokis/index/footer/move/"+@move1.img+".png", :size=>"100x100", :id=>@move1.name, :class=>"footbutton move1 movebutton" %>
+		<%= image_tag "maingokis/index/footer/move/"+@move2.img+".png", :size=>"100x100", :id=>@move2.name, :class=>"footbutton move2 movebutton" %>
 		<%= image_tag "maingokis/index/footer/envbutton.png", :size=>"100x100", :id=>"environ", :class=>"footbutton" %>
 		<%= link_to gokicollections_path do %>
 			<%= image_tag "maingokis/index/footer/homebutton.png", :size=>"100x100", :id=>"home", :class=>"footbutton" %>
 		<% end %>
-		
 	</div>
 <footer>

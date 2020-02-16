@@ -8,12 +8,14 @@ class MaingokisController < ApplicationController
 		@goki = Goki.find(params[:id])
 		@move1 = Movement.find(@goki.movement1_id)
 		@move2 = Movement.find(@goki.movement2_id)
+		gon.goki = @goki
+		gon.genre = @goki.genre.name
 	end
 
 	def addgold
 		score = params[:gold].to_i
 		current_user.gold = score + current_user.gold
-		current_goki = Goki.find(params[:goki_id].to_i)
+		current_goki = Goki.find(params[:goki_id])
 		current_goki.status = "dead"
 
 		if score > current_user.max_score
