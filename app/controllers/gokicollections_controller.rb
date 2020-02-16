@@ -7,6 +7,7 @@ class GokicollectionsController < ApplicationController
 		@goki_count = current_user.gokis.all.count
 		@restore_gold = Price.where(name:"restore")[0]
 		@restore_thresh = Price.where(name:"restore_thresh")[0]
+		@gokiadd_gold = Price.where(name:"gokiadd")[0]
 	end
 
 
@@ -20,6 +21,7 @@ class GokicollectionsController < ApplicationController
 
 	def create
 		@goki = Goki.new(goki_params)
+		@gokiadd_gold = Price.where(name:"gokiadd")[0]
 		
 		Gmove.all.each do |g|
 			if @goki.img == g.goki
@@ -31,7 +33,9 @@ class GokicollectionsController < ApplicationController
 		@goki_user = GokiUser.new(user:current_user, goki:@goki)
 		@genres = Genre.all
 		@gokiselection = Goki::GOKI_SELECTION
-		if @goki.save && @goki_user.save
+		current_user.gold -= @gokiadd_gold.cost
+
+		if @goki.save && @goki_user.save && current_user.save
 			redirect_to "/gokicollections"
 		else
 			render "new"
