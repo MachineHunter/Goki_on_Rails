@@ -12,6 +12,4 @@ class Goki < ApplicationRecord
 	attribute :status, default: "healthy"
 
 	GOKI_SELECTION = ["goki", "facegoki", "bossgoki", "mildgoki", "turkishgoki", "coolgoki", "germangoki", "greengoki", "minigoki", "stripegoki", "whitegoki"]
-	RESTORE_GOLD = 50
-	RESTORE_THRESH = 200
 end

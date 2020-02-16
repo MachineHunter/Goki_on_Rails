@@ -1,6 +1,6 @@
 <header>
 	<%= link_to maingokis_path do %>
-		<h2 id="username"><%= current_user.name %></h2>
+		<h2 id="username"><%= current_user.name %><br>(Maxscore:<%= current_user.max_score %>)</h2>
 	<% end %>
 	<h1>Goki Collection</h1>
 	<% if user_signed_in? %>
@@ -35,7 +35,7 @@
 						<%= image_tag "maingokis/index/heroes/"+@users[i-1].goki.img+".png", :size=>"230x130", :class=>"deadgokis", :id=>"goki"+i.to_s %>
 					</div>
 					<div class="cell_buttom" id="cell_buttom"+<%= i.to_s %>>
-						<p class="gokiname"><%= @users[i-1].goki.name %> (<%= @users[i-1].goki.genre.name %>) <a href="/gokicollections/restore/<%= @users[i-1].goki.id %>" data-confirm="restore <%= @users[i-1].goki.name %> for <%= @restore_gold %> gold? (if your gold is under <%= @restore_thresh %>, this is free)">restore</a></p>
+						<p class="gokiname"><%= @users[i-1].goki.name %> (<%= @users[i-1].goki.genre.name %>) <a href="/gokicollections/restore/<%= @users[i-1].goki.id %>" data-confirm="restore <%= @users[i-1].goki.name %> for <%= @restore_gold.cost.to_s %> gold? (if your gold is under <%= @restore_thresh.cost.to_s %>, this is free)">restore</a></p>
 						<p class="gokidesc"><%= @users[i-1].goki.description %></p>
 					</div>
 				</div>
