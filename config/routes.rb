@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "maingokis#index"
   devise_for :users
+  get "gokicollections/restore/:id", to: "gokicollections#restore"
   get "gokicollections/gokiexp"
   post "maingokis/addgold"
   get 'maingokis/index'

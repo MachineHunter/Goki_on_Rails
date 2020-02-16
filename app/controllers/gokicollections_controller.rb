@@ -5,6 +5,8 @@ class GokicollectionsController < ApplicationController
 		@users = current_user.goki_users
 		@gokis = Goki.all
 		@goki_count = current_user.gokis.all.count
+		@restore_gold = Goki::RESTORE_GOLD
+		@restore_thresh = Goki::RESTORE_THRESH
 	end
 
 
@@ -80,6 +82,23 @@ class GokicollectionsController < ApplicationController
 
 	def gokiexp
 		@gmoves = Gmove.all
+	end
+
+
+
+	def restore
+		@restore_gold = Goki::RESTORE_GOLD
+		@restore_thresh = Goki::RESTORE_THRESH
+		@goki = Goki.find(params[:id])
+		@goki.status = "healthy"
+		if current_user.gold > @restore_thresh
+			current_user.gold -= @restore_gold
+		end
+		if current_user.save && @goki.save
+			redirect_to "/gokicollections"
+		else
+			render action: "index"
+		end
 	end
 
 
