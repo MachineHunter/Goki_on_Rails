@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_15_072115) do
+ActiveRecord::Schema.define(version: 2020_02_16_065658) do
 
   create_table "genres", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2020_02_15_072115) do
     t.integer "genre_id"
     t.integer "movement1_id"
     t.integer "movement2_id"
+    t.string "status"
   end
 
   create_table "movements", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

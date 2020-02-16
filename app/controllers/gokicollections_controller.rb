@@ -4,6 +4,7 @@ class GokicollectionsController < ApplicationController
 	def index
 		@users = current_user.goki_users
 		@gokis = Goki.all
+		@goki_count = current_user.gokis.all.count
 	end
 
 

@@ -16,7 +16,8 @@
 <main id="indexmain">
 	<div class="collection">
 		<% (1..9).each do |i| %>
-			<% if !(@users[i-1].nil?) %>
+
+			<% if !(@users[i-1].nil?) && (@users[i-1].goki.status=="healthy") %>
 				<div class="cell" id="cell"+<%= i.to_s %>>
 					<div class="cell_top" id="cell_top"+<%= i.to_s %>>
 						<%= image_tag "maingokis/index/heroes/"+@users[i-1].goki.img+".png", :size=>"230x130", :class=>"gokis", :id=>"goki"+i.to_s %>
@@ -27,6 +28,18 @@
 						<p class="gokidesc"><%= @users[i-1].goki.description %></p>
 					</div>
 				</div>
+
+			<% elsif !(@users[i-1].nil?) && (@users[i-1].goki.status=="dead") %>
+				<div class="cell" id="cell"+<%= i.to_s %>>
+					<div class="cell_top" id="cell_top"+<%= i.to_s %>>
+						<%= image_tag "maingokis/index/heroes/"+@users[i-1].goki.img+".png", :size=>"230x130", :class=>"deadgokis", :id=>"goki"+i.to_s %>
+					</div>
+					<div class="cell_buttom" id="cell_buttom"+<%= i.to_s %>>
+						<p class="gokiname"><%= @users[i-1].goki.name %> (<%= @users[i-1].goki.genre.name %>) restore</p>
+						<p class="gokidesc"><%= @users[i-1].goki.description %></p>
+					</div>
+				</div>
+
 			<% else %>
 				<div class="cell" id="cell"+<%= i.to_s %>>
 					<div class="cell_top" id="cell_top"+<%= i.to_s %>></div>
@@ -39,10 +52,14 @@
 
 
 
+
+
 <footer id="indexfooter">
 	<div class="editbar">
-		<%= link_to new_gokicollection_path do %>
-			<%= image_tag "gokicollections/index/newbutton.png", :size=>"100x100", :class=>"footbutton" %>
+		<% if @goki_count < 9 %>
+			<%= link_to new_gokicollection_path do %>
+				<%= image_tag "gokicollections/index/newbutton.png", :size=>"100x100", :class=>"footbutton" %>
+			<% end %>
 		<% end %>
 		
 		<%= image_submit_tag "gokicollections/index/deletebutton.png", :class=>"footbutton", :id=>"deletebutton" %>

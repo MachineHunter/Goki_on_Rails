@@ -81,8 +81,12 @@ body {
 					height: 63%;
 					border: solid 1px black;
 					background: image_url("maingokis/index/mainbg/grass.png") repeat center center / 500px 320px;
-					display:  flex;
+					display: flex;
 					justify-content: space-around;
+
+					.deadgokis{
+						opacity: 0.5;
+					}
 				}
 				.cell_buttom {
 					width: 100%;
@@ -188,7 +192,7 @@ body {
 				justify-content: space-around;
 
 				.slide_content{
-					width: 65%;
+					width: 50%;
 					word-wrap: break-word;
 				}
 			}

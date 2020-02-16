@@ -12,7 +12,9 @@ class MaingokisController < ApplicationController
 
 	def addgold
 		current_user.gold = params[:gold].to_i + current_user.gold
-		if current_user.save()
+		current_goki = Goki.find(params[:goki_id].to_i)
+		current_goki.status = "dead"
+		if current_user.save && current_goki.save
 			redirect_to "/gokicollections"
 		else
 			render "index"

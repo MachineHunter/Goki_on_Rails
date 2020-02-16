@@ -146,7 +146,8 @@ $(document).on("turbolinks:load", function() {
 						rotate: 360,
 						duration: 1000
 					});
-					$.post("/maingokis/addgold", {gold:score});
+					var thisurl = (window.location.href).split("/");
+					$.post("/maingokis/addgold", {gold:score, goki_id:thisurl[thisurl.length-1]});
 				}
 
 				//destroy
