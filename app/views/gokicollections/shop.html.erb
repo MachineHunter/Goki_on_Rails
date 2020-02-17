@@ -1,0 +1,43 @@
+<header>
+	<h1>Goki Shop</h1>
+</header>
+
+
+
+
+<main>
+	<div class="shop">
+		<div class="shopcontent">
+		<table class="shoptable">
+			<% @enhances.each do |enhance| %>
+			<tr>
+				<th><%= image_tag "maingokis/index/footer/move/"+enhance.name+".png", :size=>"100x100" %></th>
+				<td><%= enhance.description %></td>
+				<td>
+					<% if current_user.gold>=@enhance_cost && !@enhancelist.include?(enhance.name) %>
+						<a data-confirm="Pay <%= @enhance_cost %> gold to enhance <%= enhance.name %>" href="/gokicollections/buyenhance/<%= enhance.id.to_s %>">enhance</a>
+					<% elsif @enhancelist.include?(enhance.name) %>
+						<p class="alreadyenhanced"><u>enhance</u></p>
+					<% elsif current_user.gold<@enhance_cost %>
+						<p class="lessgoldenhance"><u>enhance</u></p>
+					<% end %>
+				</td>
+			</tr>
+			<% end %>
+		</table>
+		</div>
+	</div>
+</main>
+
+
+
+
+<footer>
+	<div class="editbar">
+		<%= link_to gokicollections_path do %>
+			<%= image_tag "gokicollections/new/back.png", :size=>"100x100", :class=>"footbutton" %>
+		<% end %>
+
+		<p id="gold">Gold: <%= current_user.gold %></p>
+	</div>
+</footer>

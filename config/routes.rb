@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: "maingokis#index"
   devise_for :users
 
+  get "gokicollections/buyenhance/:id", to: "gokicollections#buyenhance"
+  get "gokicollections/shop"
   get "gokicollections/ranking"
   get "gokicollections/restore/:id", to: "gokicollections#restore"
   get "gokicollections/gokiexp"

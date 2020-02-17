@@ -220,6 +220,9 @@ $(document).on("turbolinks:load", function() {
 					translateY: 120,
 					duration: shiftYduration
 				});
+				if(gon.shiftY_enhance!=null){
+					score += gon.shiftY_enhance.value;
+				}
 				score += 5;
 				window.setTimeout(function(){
 					clickable=true;
@@ -240,6 +243,9 @@ $(document).on("turbolinks:load", function() {
 					rotate: 1080,
 					duration: rotateduration
 				});
+				if(gon.rotate_enhance!=null){
+					score += gon.rotate_enhance.value;
+				}
 				score += 10;
 				window.setTimeout(function(){
 					clickable=true;
@@ -251,13 +257,18 @@ $(document).on("turbolinks:load", function() {
 	
 	if($("#shiftback").length){
 		var shiftbackduration = 1000;
+		if(gon.shiftback_enhance!=null){
+			var backdist = gon.shiftback_enhance.value;
+		}else{
+			var backdist = -300;
+		}
 		$("#shiftback").click(function(){
 			if(clickable){
 				clickable = false;
 				$(".movebutton").css("opacity", "0.5");
 				anime({
 					targets: goki,
-					translateX: -300,
+					translateX: backdist,
 					direction: "alternate",
 					duration: shiftbackduration
 				});
@@ -271,7 +282,11 @@ $(document).on("turbolinks:load", function() {
 	}
 	
 	if($("#enlarge").length){
-		var enlargeduration = 3000;
+		if(gon.enlarge_enhance!=null){
+			var enlargeduration = gon.enlarge_enhance.value;
+		}else{
+			var enlargeduration = 3000;
+		}
 		$("#enlarge").click(function(){
 			if(clickable){
 				clickable = false;
@@ -305,13 +320,32 @@ $(document).on("turbolinks:load", function() {
 						$(".movebutton").css("opacity", "1.0");
 					}, clicktoclicktime);
 				}, disappearduration);
+				if(gon.disappear_enhance!=null){
+					score+=gon.disappear_enhance.value;
+				}
+				score += 5;
 			}
-			score += 5;
 		})
 	}
 
 
 
+	//movement icon glow
+	if(gon.shiftY_enhance!=null){
+		$("#shiftY").css("filter", "drop-shadow(4px 4px 4px yellow)");
+	}
+	if(gon.rotate_enhance!=null){
+		$("#rotate").css("filter", "drop-shadow(4px 4px 4px green)");
+	}
+	if(gon.shiftback_enhance!=null){
+		$("#shiftback").css("filter", "drop-shadow(4px 4px 4px red)");
+	}
+	if(gon.enlarge_enhance!=null){
+		$("#enlarge").css("filter", "drop-shadow(4px 4px 4px brown)");
+	}
+	if(gon.disappear_enhance!=null){
+		$("#disappear").css("filter", "drop-shadow(4px 4px 4px white)");
+	}
 
 
 

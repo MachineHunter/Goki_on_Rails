@@ -117,6 +117,36 @@ class GokicollectionsController < ApplicationController
 	end
 
 
+
+	def shop
+		@enhances = Enhance.all
+
+		current_enhances = UserEnhance.where(user_id:current_user.id)
+		@enhancelist = []
+		current_enhances.each do |value|
+			@enhancelist.append(value.enhance.name)
+		end
+
+		@enhance_cost = Price.where(name:"allenhance")[0].cost
+		gon.enhance_cost = Price.where(name:"allenhance")[0].cost
+	end
+
+
+
+	def buyenhance
+		enhance_cost = Price.where(name:"allenhance")[0].cost
+		enhance = UserEnhance.new(user_id:current_user.id, enhance_id:params[:id])
+		current_user.gold -= enhance_cost
+
+		if enhance.save && current_user.save
+			redirect_to "/gokicollections/shop"
+		else
+			render action: "index"
+		end
+	end
+	
+
+
 	private def goki_params
 		params.require(:goki).permit(:img, :name, :description, :genre_id )
 	end

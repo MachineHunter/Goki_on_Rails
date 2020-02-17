@@ -57,4 +57,18 @@ $(document).on("turbolinks:load", function() {
 			clickable: true
 		}
 	});
+
+
+
+	//shop
+	$(".lessgoldenhance").click(
+		function(){
+			window.alert("need "+String(gon.enhance_cost)+" gold to buy this enhance!");	
+		}
+	)
+	$(".alreadyenhanced").click(
+		function(){
+			window.alert("you already have this enhance!");
+		}
+	)
 });

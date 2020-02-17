@@ -235,6 +235,34 @@ body {
 			}
 		}
 
+
+
+		//shop page
+		.shop {
+			width: 100%;
+			height: 100%;
+			background: image_url("gokicollections/new/maintex.png") repeat center center / 300px 200px;
+			display:flex;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			
+			.shopcontent{
+				width: 80%;
+				height: 80%;
+				margin-top: 40px;
+				text-align: center;
+				display:flex;
+				flex-wrap: wrap;
+				justify-content: space-around;
+				background: image_url("gokicollections/gokiexp/scroll.png") no-repeat center center / 1200px 1150px;
+				
+				.shoptable {
+					width: 50%;
+					height: 100%;
+				}
+			}
+		}
+
 	}
 
 
