@@ -50,5 +50,6 @@ test:
 production:
   <<: *default
   database: gokiapp_production
-  username: gokiapp
+  #username: gokiapp
+  username: root
   password: <%= ENV['GOKIAPP_DATABASE_PASSWORD'] %>
