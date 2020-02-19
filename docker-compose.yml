@@ -10,12 +10,14 @@ services:
 
   web:
     build: .
-    command: rails s
+    command: rails s -p 3000 -b '0.0.0.0'
     environment:
-      RAILS_ENV: "production"
-      RACK_ENV: "production"
+      RAILS_ENV: "development"
+      RACK_ENV: "development"
       GOKIAPP_DATABASE_PASSWORD: "gokigoki"
     volumes:
       - .:/gokiapp
+    ports:
+      - "3000:3000"
     links:
       - db

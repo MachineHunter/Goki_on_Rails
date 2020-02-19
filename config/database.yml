@@ -49,7 +49,11 @@ test:
 #
 production:
   <<: *default
-  database: gokiapp_production
+  #database: gokiapp_production
   #username: gokiapp
-  username: root
-  password: <%= ENV['GOKIAPP_DATABASE_PASSWORD'] %>
+  #username: root
+  #password: <%= ENV['GOKIAPP_DATABASE_PASSWORD'] %>
+
+  database: <%= ENV["DB_NAME"] %>
+  username: <%= ENV["DB_USERNAME"] %>
+  password: <%= ENV["DB_PASSWORD"] %>
