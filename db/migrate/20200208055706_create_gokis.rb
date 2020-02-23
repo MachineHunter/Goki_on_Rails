@@ -5,9 +5,6 @@ class CreateGokis < ActiveRecord::Migration[5.2]
       t.text :name
       t.text :description
 
-		t.references :movement1, foreign_key:{ to_table: :movements }, null: false
-		t.references :movement2, foreign_key:{ to_table: :movements }, null: false
-
       t.timestamps
     end
   end
