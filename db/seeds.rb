@@ -10,10 +10,11 @@ Genre.create(id:1, name: "speedy", description: "moves fast, but the duration be
 Genre.create(id:2, name: "heavy", description: "moves slow, but the duration between movements is short.");
 Genre.create(id:3, name: "balance", description: "speed and movements duration are balanced.");
 
-Price.create(id:1, name: "restore", cost:100);
-Price.create(id:2, name: "restore_thresh", cost:200);
-Price.create(id:3, name: "gokiadd", cost:2000);
-Price.create(id:4, name: "gokiedit", cost:1000);
+Price.create(id:1, name: "restore", cost:50);
+Price.create(id:2, name: "restore_thresh", cost:100);
+Price.create(id:3, name: "gokiadd", cost:500);
+Price.create(id:4, name: "gokiedit", cost:200);
+Price.create(id:5, name: "allenhance", cost:2000);
 
 Movement.create(id:1, name:"shiftY", img:"shiftY", description:"dodge below for a short time. 5 scores will be added.");
 Movement.create(id:2, name:"rotate", img:"rotate", description:"rotate around for a short time. 10 scores will be added.");

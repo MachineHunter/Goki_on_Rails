@@ -18,7 +18,7 @@
 						<a data-confirm="Pay <%= @enhance_cost %> gold to enhance <%= enhance.name %>" href="/gokicollections/buyenhance/<%= enhance.id.to_s %>">enhance</a>
 					<% elsif @enhancelist.include?(enhance.name) %>
 						<p class="alreadyenhanced"><u>enhance</u></p>
-					<% elsif current_user.gold<@enhance_cost %>
+					<% elsif current_user.gold < @enhance_cost %>
 						<p class="lessgoldenhance"><u>enhance</u></p>
 					<% end %>
 				</td>
