@@ -1,14 +1,14 @@
-![title](./ImgForReadme/title.jpg)
+<img src="./ImgForReadme/title.jpg" width=700>
 
-・Version:1.0
-・Release:2020/2/23
-・Environment:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ruby 2.5.3
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rails 5.2.2
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Docker 19.03.5
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heroku 7.38.1 linux-x64 node-v12.13.0
-・Licence:
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created by GokiGokiMan!
+・Version:1.0  
+・Release:2020/2/23  
+・Environment:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ruby 2.5.3  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rails 5.2.2  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Docker 19.03.5  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Heroku 7.38.1 linux-x64 node-v12.13.0  
+・Licence:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created by GokiGokiMan!  
 
 <br/>
 <br/>
@@ -17,11 +17,11 @@
 
 これはゴキブリをカーソルで操作し、襲いかかるゴキジェットを何個かわせたかのスコアを競うエクストリームアクションゲームです。このアプリはrails on dockerで作られており、またheroku上に構築されているためダウンロード及びインストール不要で下記URLから誰でも無料で楽しめます。
 
-Link: [gokiapp.herokuapp.com](http://gokiapp.herokuapp.com)
-※sign upのemailは適当で大丈夫です。
-※テスト用アカウント
-&nbsp;&nbsp;&nbsp;&nbsp;email: aaa@gmail.com
-&nbsp;&nbsp;&nbsp;&nbsp;password: gokigoki
+Link: [gokiapp.herokuapp.com](http://gokiapp.herokuapp.com)  
+※sign upのemailは適当で大丈夫です。  
+※テスト用アカウント  
+&nbsp;&nbsp;&nbsp;&nbsp;email: aaa@gmail.com  
+&nbsp;&nbsp;&nbsp;&nbsp;password: gokigoki  
 
 
 
@@ -32,15 +32,15 @@ Link: [gokiapp.herokuapp.com](http://gokiapp.herokuapp.com)
 
 ![clip1](./ImgForReadme/clip1.gif)
 
-やることは至ってシンプルな以下の２つです。
-* ゴキブリを選択しゲームを始める
-* カーソルでゴキブリを動かしゴキジェットを回避してスコアを稼ぐ
+やることは至ってシンプルな以下の２つです。  
+* ゴキブリを選択しゲームを始める  
+* カーソルでゴキブリを動かしゴキジェットを回避してスコアを稼ぐ  
 
 このスコアを用いて、ユーザーランキングにて他のプレイヤーと競うことができます。また、ただ回避するだけでなく、"shift", "1", "2"のキーにて「動き」をすることができ、これをするとスコアが加算されます。
 
-このスコアはゲーム終了後、Goldに変換され、
-「ゴキブリの復活」「ゴキブリの追加/編集」「動きの強化」
-などの用途に使われます。
+このスコアはゲーム終了後、Goldに変換され、  
+「ゴキブリの復活」「ゴキブリの追加/編集」「動きの強化」  
+などの用途に使われます。  
 
 
 ### ボタンの説明
