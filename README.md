@@ -1,6 +1,6 @@
-# Goki Game
+<span style="font: italic bold 14pt/14pt 'Comic Sans MS'">Goki Game</span>
 
-Link:[GokiGame](http://gokiapp.herokuapp.com)
+Link URL : [GokiGame](http://gokiapp.herokuapp.com)
 
 Things you may want to cover:
 
