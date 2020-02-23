@@ -35,8 +35,8 @@ Gmove.create(id:10, goki:"stripegoki", move1:4, move2:5);
 Gmove.create(id:11, goki:"whitegoki", move1:3, move2:4);
 
 
-Enhance.create(id:, name:"shiftY", value:10, description:"additonal score of 10 to shiftY.")
-Enhance.create(id:, name:"rotate", value:10, description:"additional score of 10 to rotate.")
-Enhance.create(id:, name:"shiftback", value:-900, description:"shift back distance will be tripled.")
-Enhance.create(id:, name:"enlarge", value: 1200, description:"enlarge duration will be decreased more than half.")
-Enhance.create(id:, name:"disappear", value:15, description:"additional score of 15 to disappear.")
+Enhance.create(id:1, name:"shiftY", value:10, description:"additonal score of 10 to shiftY.")
+Enhance.create(id:2, name:"rotate", value:10, description:"additional score of 10 to rotate.")
+Enhance.create(id:3, name:"shiftback", value:-900, description:"shift back distance will be tripled.")
+Enhance.create(id:4, name:"enlarge", value: 1200, description:"enlarge duration will be decreased more than half.")
+Enhance.create(id:5, name:"disappear", value:15, description:"additional score of 15 to disappear.")
