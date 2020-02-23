@@ -1,4 +1,4 @@
-<span style="font: italic bold 14pt/14pt 'Comic Sans MS'">Goki Game</span>
+<span style="font-family:'Comic Sans MS'; font-size:50px; backround:-webkit-linear-gradient(45deg, black, purple); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Goki Game</span>
 
 Link URL : [GokiGame](http://gokiapp.herokuapp.com)
 
