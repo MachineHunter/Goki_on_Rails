@@ -9,3 +9,8 @@
 Genre.create(id:1, name: "speedy", description: "usually small and looks light.");
 Genre.create(id:2, name: "heavy", description: "usually large in size and looks heavy.");
 Genre.create(id:3, name: "balance", description: "nothing special but balanced in total.");
+
+Price.create(id:1, name: "restore", cost:100);
+Price.create(id:2, name: "restore_thresh", cost:200);
+Price.create(id:3, name: "gokiadd", cost:2000);
+Price.create(id:4, name: "gokiedit", cost:1000);
