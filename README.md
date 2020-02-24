@@ -48,8 +48,8 @@ Link: [gokiapp.herokuapp.com](http://gokiapp.herokuapp.com)
 |<img src="./app/assets/images/maingokis/index/footer/envbutton.png" width=100>|<img src="./app/assets/images/maingokis/index/footer/homebutton.png" width=100>|<img src="./app/assets/images/maingokis/share/logout.png" width=100>|<img src="app/assets/images/gokicollections/ranking/rankinglink.png" width=95>|
 |:-:|:-:|:-:|:-:|
 |背景画像をトグルします|メイン画面へ遷移します|ログアウトします|ランキングページを表示します|
-|<img src="app/assets/images/gokicollections/shop/shopbutton.png" width=91>|<img src="app/assets/images/gokicollections/index/newbutton.png" width=100>|<img src="app/assets/images/gokicollections/index/deletebutton.png" width=100>|
-|ショップのページを表示します|ゴキブリを追加します|ゴキブリを削除します|
+|<img src="app/assets/images/gokicollections/shop/shopbutton.png" width=91>|<img src="app/assets/images/gokicollections/index/book.png" width=100>|<img src="app/assets/images/gokicollections/index/newbutton.png" width=100>|<img src="app/assets/images/gokicollections/index/deletebutton.png" width=100>|
+|ショップのページを表示します|ゴキブリ説明書を表示します|ゴキブリを追加します|ゴキブリを削除します|
 
 
 <br/>
